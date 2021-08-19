@@ -9,7 +9,7 @@ import { CenterFocusStrong } from '@material-ui/icons';
 
 const Products = (props) => {
 
-    let number = 1;
+    const [fetched, setfetched] = useState(6)
     const { products } = useContext(AuthContext)
     const { setproducts } = useContext(AuthContext)
     const { searchProducts } = useContext(AuthContext)
@@ -17,9 +17,10 @@ const Products = (props) => {
 
 
     const loadMore=() => {
-        number++;
-        axios.get("http://localhost:8080/products", { params: { num: number } })
+        
+        axios.get("http://localhost:8080/products", { params: {fetch: fetched} })
             .then((res) => {
+                console.log("a")
                 let items = []
                 let x
                 for (x in res.data) {
@@ -34,6 +35,8 @@ const Products = (props) => {
                     })
                 }
                 setproducts([...products, ...items])
+                setfetched(fetched+items.length)
+                console.log(fetched)
             })
             .catch((e) => { alert(e) })
 

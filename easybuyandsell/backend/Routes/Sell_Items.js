@@ -3,9 +3,15 @@ const Products=require('../Schemas/Product')
 
 route.get('/',async(req,res)=>{
   
-    const num=req.query.num
+  
+  const fetched=req.query.fetch
+  const count=Products.count();
+  // if(num*9>=count){
+  //   res.send("No More");
+  //   return;
+  // }
 
-  const Items=await Products.find().sort({createdAt:-1}).limit(9);
+  const Items=await Products.find().sort({createdAt:-1}).skip(Number(fetched)).limit(6);
   res.send(Items)
    
 
