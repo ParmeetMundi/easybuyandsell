@@ -40,16 +40,15 @@ function App() {
       <ThemeProvider theme={theme}>
         <CurrentUser>
           <Router> 
+          <Navbar />
             <div>
               <Switch>
                 <Route exact path="/">
-                  <Navbar />
                   <Home />
                   <Footer />
                 </Route>
 
                 <Route exact path="/sell">
-                  <Navbar />
                   <Sell />
                   <Footer />
                 </Route>
@@ -63,7 +62,6 @@ function App() {
                 </Route>
 
                 <Route exact path="/buy">
-                  <Navbar />
                   <Buy />
                   <Footer />
                 </Route>
@@ -73,13 +71,11 @@ function App() {
                 </Route>
 
                 <Route exact path="/checkout">
-                  <Navbar />
                   <Checkout />
                   <Footer />
                 </Route>
 
                 <Route exact path="/myads">
-                  <Navbar />
                   <MyAds />
                   <Footer />
                 </Route>

@@ -3,13 +3,16 @@ import {makeStyles} from '@material-ui/core/styles';
 export default makeStyles((theme)=>({
     container:{
         backgroundColor: '#3f51b5',
-        margin: 0,
+        margin: '10px 0px',
         boxSizing: 'border-box',
         height: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: '56px',
+        [theme.breakpoints.down('md')]: {
+            margin: '15px 0px',
+        }
     },
     paper: {
         height: 'auto',
