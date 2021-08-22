@@ -24,9 +24,7 @@ const Checkout = (props) => {
     const i=location.state.id
     return (
         <>
-           {console.log(location)}
-            <Navbar />
-          
+           {console.log(location)}          
             <div className={classes.main}>
                 <div className={classes.slider}>
                     <ImageSlider images={products[i].image} />

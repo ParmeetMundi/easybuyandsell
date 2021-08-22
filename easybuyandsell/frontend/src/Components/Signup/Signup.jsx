@@ -5,6 +5,7 @@ import {Button } from '@material-ui/core';
 import { auth } from '../Firebase/firebase'
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import { useHistory } from 'react-router';
 
 
 const Signup = () => {
@@ -43,6 +44,7 @@ const Signup = () => {
                     }).then(() => {
                         auth.currentUser.updateProfile({displayName:fname + " " + lname})
                         alert("Account Created")
+                        history.push('/')
                     })
                         .catch((e) => {
                             auth.currentUser.delete()
@@ -60,6 +62,7 @@ const Signup = () => {
 
 
     const [open, setOpen] = useState(false);
+    const history = useHistory()
     const handleClose = () => {
         setOpen(false);
     };

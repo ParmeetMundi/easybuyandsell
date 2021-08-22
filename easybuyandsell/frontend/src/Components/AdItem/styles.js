@@ -1,13 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme)=> ({
-    toolbar: theme.mixins.toolbar,
     root: {
-        // maxHeight: '460px',
         maxWidth: '480px',
         margin: theme.spacing(2),
         textDecoration: 'none',
         backgroundColor: '#eeeeee',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
         [theme.breakpoints.down('md')]: {
             maxWidth: '100%'
           },
