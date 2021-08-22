@@ -26,7 +26,7 @@ function MyAds() {
                console.log(myProducts)        
             }).catch((e)=>alert(e))
         }      //  };
-    },[])
+    },[auth.currentUser])
     return ( 
         <div className="myads_container">
                 <h1 className="title">Your Ads</h1>

@@ -52,7 +52,8 @@ app.use('/search',Search)
 const Myadds=require('./Routes/Myadds')
 app.use('/Myadds',Myadds)
 
-
+const DeleteProduct=require('./Routes/DeleteProducts')
+app.use('/DeleteProduct',DeleteProduct)
 
  app.listen(8080,()=>{
      console.log("server started");
