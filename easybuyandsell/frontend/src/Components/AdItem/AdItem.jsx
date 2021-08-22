@@ -7,6 +7,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import axios from 'axios'
+import {auth} from '../Firebase/firebase'
 
 
 function AdItem(props) {
@@ -18,6 +20,21 @@ function AdItem(props) {
     }
 
     const handleDialogClose = () => {
+       
+        try{
+           axios.post('http://localhost:8080/Deleteproduct',{
+               id:auth.currentUser.uid,
+               college:"Thapar University",
+               productId:props.product._id
+           }).then((result)=>{
+               if(result.data==="Error")
+               throw result.data
+           })
+           window.location.reload()
+        }catch(e){
+            alert(e)
+        }
+        
         setopen(false)
     }
 

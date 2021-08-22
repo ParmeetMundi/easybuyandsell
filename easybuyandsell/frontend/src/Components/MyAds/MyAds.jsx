@@ -15,7 +15,7 @@ function MyAds() {
         //return  () => {
             //console.log(auth.currentUser.uid)
             if(auth.currentUser!=undefined)
-            {axios.get('http://localhost:8080/Myadds',{
+            { axios.get('http://localhost:8080/Myadds',{
                 params:{id:auth.currentUser.uid,
                 college:"Thapar University"}
             }).then((result)=>{
@@ -27,6 +27,8 @@ function MyAds() {
             }).catch((e)=>alert(e))
         }      //  };
     },[auth.currentUser])
+
+
     return ( 
         <div className="myads_container">
             <div className="ads_grid">
