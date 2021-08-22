@@ -1,32 +1,26 @@
 .myads_container {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-  }
-  .ads_grid_title {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .ads_grid {
-    margin: 10px;
-    flex: 0.5;
-  }
-  .bill_container {
-    flex: 0.5;
-  }
-  @media screen and (max-width: 760px) {
-    .myads_container {
-      flex-direction: column-reverse;
-    }
-    .ads_grid {
-      margin: 5px;
-      flex: 1;
-    }
-    .bill_container {
-      flex: 1;
-    }
-  }
-  
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ads_grid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.myads_title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #3f51b5;
+}
+.no_ad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

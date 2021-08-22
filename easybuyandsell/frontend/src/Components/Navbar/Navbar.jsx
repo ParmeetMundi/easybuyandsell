@@ -1,4 +1,4 @@
-import React,{useContext, useState} from 'react';
+import React,{useContext, useState, useEffect} from 'react';
 import './Navbar.css';
 import {AppBar, Toolbar, Typography, IconButton, Badge, Avatar, Select, Button} from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -15,8 +15,11 @@ import {auth} from '../Firebase/firebase'
 
 
 const Navbar = () => {
+    useEffect(() => {
+    }, [auth.currentUser])
     const classes = useStyles();
     const {currentUser} = useContext(AuthContext);
+    console.log("USER->>>>", currentUser)
     const[click, setclick] = useState(false);
 
     const handleClick = () => setclick(!click);
@@ -181,16 +184,34 @@ const Navbar = () => {
                             My Ads
                         </NavLink>
                     </li>
-                    <li className="nav_item">
-                        <NavLink exact to="/login" activeClassName="active" className="nav_links" onClick={handleClick}>
-                            Login
-                        </NavLink>
-                    </li>
-                    <li className="nav_item">
-                        <NavLink exact to="/signup" activeClassName="active" className="nav_links" onClick={handleClick}>
-                            Signup
-                        </NavLink>
-                    </li>
+                    {
+                        !currentUser ?
+                        <> 
+                            <li className="nav_item">
+                                <NavLink exact to="/login" activeClassName="active" className="nav_links" onClick={handleClick}>
+                                    Login
+                                </NavLink>
+                            </li>
+                            <li className="nav_item">
+                                <NavLink exact to="/signup" activeClassName="active" className="nav_links" onClick={handleClick}>
+                                    Signup
+                                </NavLink>
+                            </li>
+                        </>
+                                    :
+                        <>
+                            <li className="nav_item">
+                                <div activeClassName="active" className="nav_links" onClick={logout}>
+                                    Logout
+                                </div>
+                            </li>
+                            <li className="nav_item">
+                                <div activeClassName="active" className="nav_links">
+                                    {currentUser?.displayName}
+                                </div>
+                            </li>
+                        </>
+                    }
                 </ul>
 
                 <div className="nav_icon" onClick={handleClick}>
