@@ -2,12 +2,10 @@ import React,{useState,useContext} from 'react';
 import Products from './Products/Products';
 import useStyles from './styles';
 import SearchIcon from '@material-ui/icons/Search';
-import Footer from '../Footer/Footer';
-import { Button, Typography } from '@material-ui/core';
+import { Button} from '@material-ui/core';
 import axios from 'axios'
 import { AuthContext } from '../Firebase/currentUser';
 import { useHistory, useParams } from 'react-router';
-import {Link} from 'react-router-dom';
 
 
 const Buy = () => {
@@ -54,28 +52,14 @@ const Buy = () => {
 
     return (
         <>
-            {
-                isloggedin ?
-                <>
-                <div className={classes.content}>
+            <div className={classes.content}>
                 <div className={classes.search}>
                     <SearchIcon color="secondary" fontSize="xx-large"/>
                     <input type="text" value={query} onChange={(e)=>{setquery(e.target.value)}} className={classes.searchbar} placeholder="Search product name, title" color="secondary"></input>
                     <Button onClick={Search}>Search</Button>
                 </div>
                     <Products isSearch={search==='search'?true:false} />
-                </div>
-                </>
-            :
-            <>
-                <div className={classes.notloggedin}>
-                    <div className={classes.loginNav}>
-                        <Typography className={classes.typo}>You are not loged in</Typography>
-                        <Button variant="contained" color="secondary" component={Link} to="/login">LOG IN</Button>
-                    </div>
-                </div>
-            </>  
-            }
+            </div>
         </>
     )
 }

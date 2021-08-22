@@ -1,9 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Card, CardMedia, CardContent, CardActions, Typography, Button} from '@material-ui/core';
 import useStyles from './styles';
 import {Link} from 'react-router-dom';
-import Checkout from '../../../Checkout/Checkout';
-import { propTypes } from 'react-bootstrap/esm/Image';
 
 const Product = (props) => {
     const classes = useStyles();
@@ -29,7 +27,6 @@ const Product = (props) => {
                         <Button 
                         variant="contained"
                         color= "secondary"
-                        // component={Link} to="/checkout"
                         ><Link to={{pathname:"/checkout",state:{id:props.id} }} className={classes.checkoutBtn}>Checkout</Link></Button>
                     </div>
                 </CardActions>

@@ -1,15 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, {useState } from 'react';
 import './Login.css';
 import { Button } from '@material-ui/core';
 import {Link, useHistory} from 'react-router-dom';
 import {auth} from '../Firebase/firebase'
-import { AuthContext } from '../Firebase/currentUser';
 import logo from '../../assets/logo.png';
 
 const Login = () => {
      const [email, setemail] = useState()
      const [password, setpassword] = useState()
-     const {currentUser}=useContext(AuthContext)
      const history=useHistory()
      const login=()=>{
               auth.signInWithEmailAndPassword(email,password)
@@ -21,42 +19,7 @@ const Login = () => {
                   })
      }
 
-
-
     return (
-        // <div className={classes.container}>
-        //     <Paper elevation={3} className={classes.paper}>
-        //         <Typography className={classes.title}>LOG IN</Typography>
-        //             <div className={classes.textfields}>
-        //             <TextField
-        //                 required
-        //                 id="standard-required"
-        //                 label="Username"
-        //                 fullWidth
-        //                 value={email}
-        //                 onChange={(e)=>{setemail(e.target.value)}}
-        //             />
-        //             </div>
-        //             <div className={classes.textfields}>
-        //             <TextField
-        //                 required
-        //                 id="standard-required"
-        //                 label="Password"
-        //                 fullWidth
-        //                 value={password}
-        //                 type="password"
-        //                 onChange={(e)=>{setpassword(e.target.value)}}
-        //             />
-        //             </div>
-        //         <div className={classes.btnwrapper}>
-        //             <Button variant="contained" onClick={()=>{login()}} color="secondary">Log In</Button>
-        //         </div>
-        //         <div className={classes.btnwrapper}>
-        //             <Typography>Don't have an account?</Typography>
-        //             <Button variant="contained" className={classes.btn} component={Link} to="/signup" color="secondary">Sign In</Button>
-        //         </div>
-        //     </Paper>
-        // </div>
         <div className="login">
             <div className="login_container">
                 <img src={logo} alt="img" className="login_logo"/>

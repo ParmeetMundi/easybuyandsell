@@ -1,20 +1,12 @@
-import React,{useContext, useState} from 'react';
+import React,{useContext} from 'react';
 import useStyles from './styles';
 import ImageSlider from '../Checkout/ImageSlider/ImageSlider';
-import Navbar from '../Navbar/Navbar';
-import {Grid, IconButton, Paper, Typography} from '@material-ui/core';
+import {Paper, Typography} from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import {AuthContext} from '../Firebase/currentUser'
 import { useLocation } from 'react-router';
 
-
-// const images = ['https://source.unsplash.com/RyRpq9SUwAU/1600x900',
-//                 'https://source.unsplash.com/ULmaQh9Gvbg/1600x900',
-//                 'https://source.unsplash.com/TMOeGZw9NY4/1600x900',
-//                 'https://source.unsplash.com/yXpA_eCbtzI/1600x900',
-//                 'https://source.unsplash.com/ULmaQh9Gvbg/1600x900',
-//             ]
 
 const Checkout = (props) => {
     const classes = useStyles();
