@@ -6,6 +6,7 @@ import Signup from './Components/Signup/Signup';
 import Sell from './Components/Sell/Sell';
 import Login from './Components/Login/Login';
 import Checkout from './Components/Checkout/Checkout';
+import MyAds from './Components/MyAds/MyAds';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import { CurrentUser } from './Components/Firebase/currentUser'
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -79,7 +80,7 @@ function App() {
 
                 <Route exact path="/myads">
                   <Navbar />
-                  <h1>Your Ads</h1>
+                  <MyAds />
                   <Footer />
                 </Route>
 

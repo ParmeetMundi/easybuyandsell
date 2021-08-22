@@ -1,0 +1,32 @@
+.myads_container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+  .ads_grid_title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ads_grid {
+    margin: 10px;
+    flex: 0.5;
+  }
+  .bill_container {
+    flex: 0.5;
+  }
+  @media screen and (max-width: 760px) {
+    .myads_container {
+      flex-direction: column-reverse;
+    }
+    .ads_grid {
+      margin: 5px;
+      flex: 1;
+    }
+    .bill_container {
+      flex: 1;
+    }
+  }
+  
