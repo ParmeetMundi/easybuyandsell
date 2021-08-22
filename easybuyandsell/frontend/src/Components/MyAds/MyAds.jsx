@@ -22,11 +22,11 @@ function MyAds() {
                if(result.data==="Error") 
                throw 'Error'
                //console.log(result.data)
-               setmyProducts([...myProducts,...(result.data)])
+               setmyProducts([...(result.data)])
                console.log(myProducts)        
             }).catch((e)=>alert(e))
         }      //  };
-    },[])
+    },[auth.currentUser])
     return ( 
         <div className="myads_container">
             <div className="ads_grid">

@@ -16,7 +16,8 @@ export const CurrentUser = ({children}) => {
     const [searchProducts, setsearchProducts] = useState([ ])
 
      useEffect(() => {
-         auth.onAuthStateChanged((e)=>setcurrentUser(e));
+         auth.onAuthStateChanged((e)=>{setcurrentUser(e)
+        console.log("a")});
          
          axios.get("http://localhost:8080/products", { params: { num: 1 } })
          .then((res) => {
