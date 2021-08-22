@@ -3,7 +3,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 .ads_grid {
@@ -13,8 +13,14 @@
   align-items: center;
 }
 .myads_title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #3f51b5;
 }
-@media screen and (max-width: 760px) {
-  .ads_grid {
-  }
+.no_ad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
