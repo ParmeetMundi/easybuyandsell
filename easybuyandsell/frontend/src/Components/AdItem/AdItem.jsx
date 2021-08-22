@@ -25,11 +25,11 @@ function AdItem(props) {
         <>   
             <div className={classes.toolbar}/>
             <Card className={classes.root}>
-                <CardMedia component="img" src={"http://localhost:8080/"+props.product.image[0]} title={props.product.title} className={classes.media}/>
+                <CardMedia component="img" src={"http://localhost:8080/"+props.product.imageUrl[0]} title={props.product.name} className={classes.media}/>
                 <CardContent>
                     <div className={classes.cardcontent}>
                         <Typography variant="h5" gutterBottom className={classes.title}>
-                            {props.product.title}
+                            {props.product.name}
                         </Typography>
                         <Typography variant="h6" className={classes.price}>
                             ₹ {props.product.price}

@@ -11,16 +11,8 @@ export const AuthContext=createContext();
 export const CurrentUser = ({children}) => {
     
     const [currentUser, setcurrentUser] = useState(null)
-
     const [products, setproducts] = useState([ ])
-    // {id: 1, title: 'Shoes', description: 'Running shoes', image: [], price: '₹560',seller:'parmeet',email:'parmeet@z.com',phone:'100'},
-    // {id: 1, title: 'Shoes', description: 'Running shoes', image: [], price: '₹560',seller:'parmeet',email:'parmeet@z.com',phone:'100'},
-    // {id: 1, title: 'Shoes', description: 'Running shoes', image: [], price: '₹560',seller:'parmeet',email:'parmeet@z.com',phone:'100'},
-    // {id: 2, title: 'Mattress', description: 'Sleepwell mattress', image: [], price: '₹1200',seller:'parmeet',email:'parmeet@z.com',phone:'100'},
-    // {id: 2, title: 'Mattress', description: 'Sleepwell mattress', image: [], price: '₹1200',seller:'parmeet',email:'parmeet@z.com',phone:'100'},
-    // {id: 2, title: 'Mattress', description: 'Sleepwell mattress', image: [], price: '₹1200',seller:'parmeet',email:'parmeet@z.com',phone:'100'},
-    // {id: 2, title: 'Mattress', description: 'Sleepwell mattress', image: [], price: '₹1200',seller:'parmeet',email:'parmeet@z.com',phone:'100'}
-
+    const [myProducts,setmyProducts]=useState([])
     const [searchProducts, setsearchProducts] = useState([ ])
 
      useEffect(() => {
@@ -51,7 +43,9 @@ export const CurrentUser = ({children}) => {
                                         "products":products,
                                         "setproducts":setproducts,
                                         "searchProducts":searchProducts,
-                                        "setsearchProducts":setsearchProducts}}>
+                                        "setsearchProducts":setsearchProducts,
+                                        "myProducts":myProducts,
+                                        "setmyProducts":setmyProducts}}>
          {children}
          </AuthContext.Provider>;
 }

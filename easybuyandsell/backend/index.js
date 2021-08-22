@@ -49,6 +49,11 @@ app.use('/products',SellItems)
 const Search=require('./Routes/Search')
 app.use('/search',Search)
 
+const Myadds=require('./Routes/Myadds')
+app.use('/Myadds',Myadds)
+
+
+
  app.listen(8080,()=>{
      console.log("server started");
  }) 
