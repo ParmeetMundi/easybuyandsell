@@ -19,7 +19,7 @@ export const CurrentUser = ({children}) => {
          auth.onAuthStateChanged((e)=>{setcurrentUser(e)
         console.log("a")});
          
-         axios.get("http://localhost:8080/products", { params: { num: 1 } })
+         axios.get("/products", { params: { num: 1 } })
          .then((res) => {
              let items = []
              let x
