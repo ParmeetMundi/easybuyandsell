@@ -92,7 +92,7 @@ const Sell = () => {
         data.append("id",currentUser.uid)
         data.append("price",price)
 
-        axios.post("http://localhost:8080/sell"
+        axios.post("/sell"
                    ,data
                    ,{headers: { "Content-Type": "multipart/form-data" }}
                    ).then((res)=>{

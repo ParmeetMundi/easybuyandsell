@@ -32,7 +32,7 @@ const Signup = () => {
             auth
                 .createUserWithEmailAndPassword(email, pass1)
                 .then(() => {
-                    axios.post('http://localhost:8080/SignUp', {
+                    axios.post('/SignUp', {
                         id: auth.currentUser.uid,
                         name: fname + " " + lname,
                         age: age,

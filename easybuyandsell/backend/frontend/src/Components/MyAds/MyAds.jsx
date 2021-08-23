@@ -16,7 +16,7 @@ function MyAds() {
         //return  () => {
             //console.log(auth.currentUser.uid)
             if(auth.currentUser!=undefined)
-            { axios.get('http://localhost:8080/Myadds',{
+            { axios.get('/Myadds',{
                 params:{id:auth.currentUser.uid,
                 college:"Thapar University"}
             }).then((result)=>{

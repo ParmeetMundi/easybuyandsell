@@ -14,7 +14,7 @@ const Navbar = () => {
     }, [auth.currentUser])
     const {currentUser} = useContext(AuthContext);
     const{setmyProducts} = useContext(AuthContext) 
-    console.log("USER->>>>", currentUser)
+    //console.log("USER->>>>", currentUser)
     const[click, setclick] = useState(false);
     const [disable, setdisable] = useState(false)
 

@@ -4,7 +4,6 @@ import axios from 'axios'
 export const AuthContext=createContext();
 
 
-axios.defaults.baseURL = "https://easybuyandsell.herokuapp.com"
 
 // {!currentUser? <Sign/> :<Login />> }
 
@@ -17,9 +16,9 @@ export const CurrentUser = ({children}) => {
 
      useEffect(() => {
          auth.onAuthStateChanged((e)=>{setcurrentUser(e)
-        console.log("a")});
+       });
          
-         axios.get("https://easybuyandsell.herokuapp.com/products", { params: { num: 1 } })
+         axios.get("/products", { params: { num: 1 } })
          .then((res) => {
              let items = []
              let x

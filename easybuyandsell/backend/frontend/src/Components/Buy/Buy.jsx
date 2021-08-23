@@ -26,7 +26,7 @@ const Buy = () => {
 
     const Search=()=>{
              
-              axios.get('http://localhost:8080/search',{
+              axios.get('/search',{
                   params:{query:query}
               }).then((res)=>{
                   let items=[]

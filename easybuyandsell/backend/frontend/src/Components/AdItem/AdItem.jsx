@@ -22,7 +22,7 @@ function AdItem(props) {
     const handleDialogClose = () => {
        
         try{
-           axios.post('http://localhost:8080/Deleteproduct',{
+           axios.post('/Deleteproduct',{
                id:auth.currentUser.uid,
                college:"Thapar University",
                productId:props.product._id
@@ -42,7 +42,7 @@ function AdItem(props) {
         <>   
             <div className={classes.toolbar}/>
             <Card className={classes.root}>
-                <CardMedia component="img" src={"http://localhost:8080/"+props.product.imageUrl[0]} title={props.product.name} className={classes.media}/>
+                <CardMedia component="img" src={"/"+props.product.imageUrl[0]} title={props.product.name} className={classes.media}/>
                 <CardContent>
                     <div className={classes.cardcontent}>
                         <Typography variant="h5" gutterBottom className={classes.title}>

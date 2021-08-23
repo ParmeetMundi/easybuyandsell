@@ -5,7 +5,7 @@ import axios from 'axios'
 import { AuthContext } from '../../Firebase/currentUser'
 import { CenterFocusStrong } from '@material-ui/icons';
 
-axios.defaults.baseURL = "https://easybuyandsell.herokuapp.com"
+
 
 const Products = (props) => {
 
@@ -18,7 +18,7 @@ const Products = (props) => {
 
     const loadMore=() => {
         
-        axios.get("https://easybuyandsell.herokuapp.com/products", { params: {fetch: fetched} })
+        axios.get("/products", { params: {fetch: fetched} })
             .then((res) => {
                 console.log("a")
                 let items = []
