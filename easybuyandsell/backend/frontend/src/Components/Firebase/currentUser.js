@@ -4,7 +4,7 @@ import axios from 'axios'
 export const AuthContext=createContext();
 
 
-axios.defaults.baseURL = process.env.APP_URL
+axios.defaults.baseURL = "https://easybuyandsell.herokuapp.com"
 
 // {!currentUser? <Sign/> :<Login />> }
 
