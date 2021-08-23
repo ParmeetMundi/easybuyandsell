@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
 const express=require('express');
 const app=express();
+const port=process.env.PORT||8080
 
 app.use(express.json({ limit:'1mb'}));
 app.use('/ProductImages',express.static('./ProductImages'))
@@ -55,7 +56,19 @@ app.use('/Myadds',Myadds)
 const DeleteProduct=require('./Routes/DeleteProducts')
 app.use('/DeleteProduct',DeleteProduct)
 
- app.listen(8080,()=>{
+
+if(process.env.NODE_ENV ==='production'){
+
+  app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+  });
+}
+
+
+
+ app.listen(port,()=>{
      console.log("server started");
  }) 
 

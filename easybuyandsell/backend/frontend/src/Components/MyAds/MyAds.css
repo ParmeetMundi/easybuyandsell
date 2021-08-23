@@ -1,0 +1,26 @@
+.myads_container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ads_grid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.myads_title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #3f51b5;
+}
+.no_ad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
