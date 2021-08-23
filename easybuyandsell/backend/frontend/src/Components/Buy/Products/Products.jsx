@@ -18,7 +18,7 @@ const Products = (props) => {
 
     const loadMore=() => {
         
-        axios.get("http://localhost:8080/products", { params: {fetch: fetched} })
+        axios.get("/products", { params: {fetch: fetched} })
             .then((res) => {
                 console.log("a")
                 let items = []
