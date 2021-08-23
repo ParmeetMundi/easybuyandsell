@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
 const express=require('express');
 const app=express();
+const path=require('path')
 const port=process.env.PORT||8080
 
 app.use(express.json({ limit:'1mb'}));
