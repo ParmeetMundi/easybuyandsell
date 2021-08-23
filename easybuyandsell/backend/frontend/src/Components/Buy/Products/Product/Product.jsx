@@ -10,7 +10,7 @@ const Product = (props) => {
         <>   
             <div className={classes.toolbar}/>
             <Card className={classes.root}>
-                <CardMedia component="img" src={"/"+props.product.image[0]} title={props.product.title} className={classes.media}/>
+                <CardMedia component="img" src={"https://easybuyandsell.herokuapp.com/"+props.product.image[0]} title={props.product.title} className={classes.media}/>
                 <CardContent>
                     <div className={classes.cardcontent}>
                         <Typography variant="h5" gutterBottom className={classes.title}>
