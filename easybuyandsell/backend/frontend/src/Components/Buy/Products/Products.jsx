@@ -5,7 +5,7 @@ import axios from 'axios'
 import { AuthContext } from '../../Firebase/currentUser'
 import { CenterFocusStrong } from '@material-ui/icons';
 
-
+axios.defaults.baseURL = process.env.APP_URL
 
 const Products = (props) => {
 
