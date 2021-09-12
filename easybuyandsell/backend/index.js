@@ -13,6 +13,7 @@ app.use((req,res,next)=>{
     next();
   });
 
+app.disable('etag')
   var elasticsearch = require("elasticsearch");
 
   // var client = new elasticsearch.Client({
