@@ -1,6 +1,6 @@
 Ecommerce website
 
-Easy Buy And Sell 
+Easy Buy And Sell \n
 • Users can sell products
 • Stack used MERN, Elastic Search database for searching purpose
 • Firebase for User authentication
