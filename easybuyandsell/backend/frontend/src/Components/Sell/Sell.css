@@ -77,6 +77,19 @@
   font-weight: 800 !important;
 }
 
+.uploading{
+
+  text-align: center;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  position: fixed;
+}
+
+
+
 @media (max-width: 500px) {
   .sell_container {
     margin: 40px 20px;

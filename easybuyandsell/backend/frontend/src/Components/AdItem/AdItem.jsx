@@ -42,7 +42,7 @@ function AdItem(props) {
         <>   
             <div className={classes.toolbar}/>
             <Card className={classes.root}>
-                <CardMedia component="img" src={"/"+props.product.imageUrl[0]} title={props.product.name} className={classes.media}/>
+                <CardMedia component="img" src={props.product.imageUrl[0]} title={props.product.name} className={classes.media}/>
                 <CardContent>
                     <div className={classes.cardcontent}>
                         <Typography variant="h5" gutterBottom className={classes.title}>

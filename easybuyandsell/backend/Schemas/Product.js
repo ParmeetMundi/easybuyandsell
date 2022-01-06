@@ -46,12 +46,12 @@ const Products = mongoose.Schema({
     }
 })
 
-Products.plugin(mongoosastic, 
-     {hydrate:true, 
-      hydrateOptions: {lean: true},
-      hosts: [
-        'localhost:9200'
-      ]});
+// Products.plugin(mongoosastic, 
+//      {hydrate:true, 
+//       hydrateOptions: {lean: true},
+//       hosts: [
+//         'localhost:9200'
+//       ]});
 
 
     // mongoose.model("Products",Products).createMapping({

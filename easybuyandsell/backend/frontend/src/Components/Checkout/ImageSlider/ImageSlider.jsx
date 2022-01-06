@@ -22,7 +22,7 @@ const ImageSlider = ({ images }) => { // takes in images as props
       <div>
        <div className="each-slide">
         <button onClick={slideLeft}>{"<"}</button>
-        <img src={"/"+images[index]} alt={index} width="100%" />
+        <img src={images[index]} alt={index} width="100%" />
         <button onClick={slideRight}>{">"}</button>
         </div>
       </div>

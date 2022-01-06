@@ -13,6 +13,7 @@ export const CurrentUser = ({children}) => {
     const [products, setproducts] = useState([ ])
     const [myProducts,setmyProducts]=useState([])
     const [searchProducts, setsearchProducts] = useState([ ])
+    const [fetched, setfetched] = useState(6)
 
      useEffect(() => {
          auth.onAuthStateChanged((e)=>{setcurrentUser(e)
@@ -45,7 +46,11 @@ export const CurrentUser = ({children}) => {
                                         "searchProducts":searchProducts,
                                         "setsearchProducts":setsearchProducts,
                                         "myProducts":myProducts,
-                                        "setmyProducts":setmyProducts}}>
+                                        "setmyProducts":setmyProducts,
+                                        "fetched":fetched,
+                                        "setfetched":setfetched   
+                                        
+                                        }}>
          {children}
          </AuthContext.Provider>;
 }

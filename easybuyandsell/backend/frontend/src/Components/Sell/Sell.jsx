@@ -11,8 +11,10 @@ import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import AddIcon from '@material-ui/icons/Add';
 import axios from 'axios';
 import {AuthContext} from '../Firebase/currentUser';
-import {useHistory} from 'react-router-dom';
-
+import {auth, storage} from '../Firebase/firebase';
+import {Link, useHistory} from 'react-router-dom';
+//import ClipLoader from "react-spinners/ClipLoader";
+import upload from '../../assets/upload.png'
 
 
 
@@ -20,7 +22,7 @@ const Sell = () => {
     const history = useHistory();
     const {currentUser} = useContext(AuthContext)
     const [open, setOpen] = useState(false);
-
+    const[loading, setloading] = useState(false)
     const handleClose = () => {
         setOpen(false);
     };
@@ -48,6 +50,8 @@ const Sell = () => {
     let[descE, setdescE] = useState("");
     let[priceE, setpriceE] = useState("");
     let[fileE, setfileE] = useState("");
+
+    var imageUrls=[];
 
     let valid = () =>{
         let nameE = ""; let quantE = ""; let descE = ""; let priceE = ""; let fileE  = "";
@@ -80,27 +84,61 @@ const Sell = () => {
     }
 
     const sell=()=>{
-        const data=new FormData()
-        data.append("name",name)
-        data.append("category",category)
-        data.append("quantity",quantity)
-        data.append("description",description)
-        data.append("college","Thapar University")
-        for (let i = 0; i < files.length; i++) {
-            data.append("productImage",files[i], files[i].name)
+        const data={ "name":name,
+               "category":category,
+               "quantity":quantity,
+               "description":description,
+               "college":"Thapar University",
+               "urls":imageUrls,
+               "id":currentUser.uid,
+               "price":price
         }
-        data.append("id",currentUser.uid)
-        data.append("price",price)
-
         axios.post("/sell"
                    ,data
-                   ,{headers: { "Content-Type": "multipart/form-data" }}
                    ).then((res)=>{
                        
                     alert(res.data)
-                   }).catch((e)=>{alert(e)})
+                    setloading(false)
+                    history.push('/myads')
+                   }).catch((e)=>{alert(e);setloading(false);}
+                   )
 
     }
+    
+    const imageupload=()=>{
+        const promises = [];
+      
+
+        for (let i = 0; i < files.length; i++) {
+        const uploadTask = storage.ref(`images/${files[i].name}`).put(files[i]);
+        promises.push(uploadTask);
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+          },
+          (error) => {
+            console.log(error);
+          },
+         
+          async () => {
+            await storage
+              .ref("images")
+              .child(files[i].name)
+              .getDownloadURL()
+              .then((urls) => {
+                imageUrls.push(urls)
+                sell()
+              });
+          }
+        );
+      };
+  
+      Promise.all(promises)
+        .then(() => {
+             // console.log(imageUrls)
+             })
+        .catch((err) => alert(err));
+  }
 
 
 
@@ -113,8 +151,8 @@ const Sell = () => {
             setdescE("");
             setpriceE("");
             setfileE("");
-            sell()
-            history.push('/myads')
+            setloading(true)
+            imageupload()
         }
     }
     
@@ -229,6 +267,9 @@ const Sell = () => {
                     <Button variant="contained" className="btn" startIcon={<SaveIcon />} onClick={handleSaveProduct}>Save Product</Button>
                 </div>
             </div>
+           {loading?<div className='uploading'>
+               <img className="uploadImage" src={upload}/>
+           </div>:null}
         </div>
     )
 }

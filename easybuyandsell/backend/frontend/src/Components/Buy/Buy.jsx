@@ -26,6 +26,11 @@ const Buy = () => {
 
     const Search=()=>{
              
+
+
+
+        alert("Currently Elastic search is not available because elastic search is not yet deployed")
+        return;
               axios.get('/search',{
                   params:{query:query}
               }).then((res)=>{

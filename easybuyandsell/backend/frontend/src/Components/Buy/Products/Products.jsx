@@ -9,7 +9,8 @@ import { CenterFocusStrong } from '@material-ui/icons';
 
 const Products = (props) => {
 
-    const [fetched, setfetched] = useState(6)
+    const { fetched } = useContext(AuthContext)
+    const { setfetched } = useContext(AuthContext)
     const { products } = useContext(AuthContext)
     const { setproducts } = useContext(AuthContext)
     const { searchProducts } = useContext(AuthContext)
