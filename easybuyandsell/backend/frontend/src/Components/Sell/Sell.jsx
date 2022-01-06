@@ -52,7 +52,7 @@ const Sell = () => {
     let[fileE, setfileE] = useState("");
 
     var imageUrls=[];
-
+    var len=0;
     let valid = () =>{
         let nameE = ""; let quantE = ""; let descE = ""; let priceE = ""; let fileE  = "";
         
@@ -127,7 +127,10 @@ const Sell = () => {
               .getDownloadURL()
               .then((urls) => {
                 imageUrls.push(urls)
-                sell()
+                if(files.length==imageUrls.length){
+                    sell()
+                }
+                
               });
           }
         );
