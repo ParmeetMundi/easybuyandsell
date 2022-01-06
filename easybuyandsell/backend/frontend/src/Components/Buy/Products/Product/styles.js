@@ -10,8 +10,8 @@ export default makeStyles((theme)=> ({
     },
     media: {
         borderBottom: '1px solid #616161',
-        width: 'auto',
-        height: '210px',
+        minHeight: '260px',
+        objectFit: 'cover'
     },
     cardcontent: {
         display: 'flex',
